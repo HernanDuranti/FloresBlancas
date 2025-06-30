@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flores Blancas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-4">
+    <h1>Catálogo: Bazar</h1>
+    <nav class="mt-3">
+      <a href="index.html" class="btn btn-light mx-1">Limpieza</a>
+      <a href="bazar.html" class="btn btn-light mx-1">Bazar</a>
+      <a href="indumentaria.html" class="btn btn-light mx-1">Indumentaria</a>
+    </nav>
+  </header>
+  <main class="container-fluid my-5 px-3">
+    <h3>Bazar</h3>
+    <div class="row">
+      <!-- Producto 1 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/rayador.jpg" class="card-img-top" alt="rayador" />
+          <div class="card-body">
+            <h5 class="card-title">Rayador</h5>
+            <p class="card-text">Precio: $2.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Rayador">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+            <!-- Producto 2 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/jarradeplastico.jpg" class="card-img-top" alt="jarradeplastico" />
+          <div class="card-body">
+            <h5 class="card-title">Jarra de plastico</h5>
+            <p class="card-text">Precio $2.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Jarra de plastico">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+          <!-- Producto 3 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/difusor.jpg" class="card-img-top" alt="Difusor" />
+          <div class="card-body">
+            <h5 class="card-title">Difusor</h5>
+            <p class="card-text">Para detergente o jabon liquido.</p>
+            <p class="card-text">Precio: $3.100</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Difusor">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4-->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/ensaladeras.jpg" class="card-img-top" alt="ensaladeras" />
+          <div class="card-body">
+            <h5 class="card-title">Ensaladera</h5>
+            <p class="card-text">Económicas de plastico.</p>
+            <p class="card-text">Precio $1.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Ensaladera">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+       <!-- Producto 5 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/cajaorganizadora.jpg" class="card-img-top" alt="cajaorganizadora" />
+          <div class="card-body">
+            <h5 class="card-title">Caja Organizadora</h5>
+            <p class="card-text">Con tapa</p>
+            <p class="card-text">Precio $4.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Caja organizadora con tapa">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    
+
+        <!-- Producto 6 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/cajaorganizadora1.jpg" class="card-img-top" alt="cajaorganizadora1" />
+          <div class="card-body">
+            <h5 class="card-title">Caja Organizadora</h5>
+            <p class="card-text">Con mango de madera</p>
+            <p class="card-text">Precio $3.800</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Caja organizadora con mango de madera">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Producto 7 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/repasadores.jpg" class="card-img-top" alt="repasadores" />
+          <div class="card-body">
+            <h5 class="card-title">Repasadores de algodon</h5>
+            <p class="card-text">Precio $1.800</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Repasadores">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+  </main>
+
+
+  <!-- Botón flotante para abrir carrito -->
+  <button id="btn-carrito" class="btn btn-success btn-lg btn-whatsapp d-none" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+    Ver carrito (<span id="contador-carrito">0</span>)
+  </button>
+
+  <!-- Modal carrito -->
+  <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCarritoLabel">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="lista-carrito" class="list-group"></ul>
+          <div id="carrito-vacio" class="text-center text-muted mt-3">
+            El carrito está vacío.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-enviar-whatsapp" type="button" class="btn btn-success" disabled>
+            Enviar pedido por WhatsApp
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <p>© 2025 Flores Blancas</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  const carritoKey = 'carritoProductos';
+
+  function cargarCarrito() {
+    const data = localStorage.getItem(carritoKey);
+    return data ? JSON.parse(data) : [];
+  }
+
+  function guardarCarrito(carrito) {
+    localStorage.setItem(carritoKey, JSON.stringify(carrito));
+  }
+
+  function actualizarBotonCarrito() {
+    const carrito = cargarCarrito();
+    const btn = document.getElementById('btn-carrito');
+    const contador = document.getElementById('contador-carrito');
+    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+
+    if (totalItems > 0) {
+      btn.classList.remove('d-none');
+      contador.textContent = totalItems;
+    } else {
+      btn.classList.add('d-none');
+      contador.textContent = '0';
+    }
+  }
+
+  function agregarProducto(nombre) {
+    const carrito = cargarCarrito();
+    const index = carrito.findIndex(p => p.nombre === nombre);
+
+    if (index > -1) {
+      carrito[index].cantidad++;
+    } else {
+      carrito.push({ nombre, cantidad: 1 });
+    }
+
+    guardarCarrito(carrito);
+    actualizarBotonCarrito();
+    alert(`"${nombre}" agregado al carrito.`);
+  }
+
+  function cambiarCantidad(index, delta) {
+    const carrito = cargarCarrito();
+    if (!carrito[index]) return;
+
+    carrito[index].cantidad += delta;
+
+    if (carrito[index].cantidad <= 0) {
+      carrito.splice(index, 1);
+    }
+
+    guardarCarrito(carrito);
+    renderizarCarrito();
+    actualizarBotonCarrito();
+  }
+
+  function renderizarCarrito() {
+    const carrito = cargarCarrito();
+    const lista = document.getElementById('lista-carrito');
+    const vacioMsg = document.getElementById('carrito-vacio');
+    const btnEnviar = document.getElementById('btn-enviar-whatsapp');
+
+    lista.innerHTML = '';
+
+    if (carrito.length === 0) {
+      vacioMsg.style.display = 'block';
+      btnEnviar.disabled = true;
+      return;
+    }
+
+    vacioMsg.style.display = 'none';
+    btnEnviar.disabled = false;
+
+    carrito.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+      li.innerHTML = `
+        <div>
+          ${item.nombre} <strong>(x${item.cantidad})</strong>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-danger me-1">−</button>
+          <button class="btn btn-sm btn-outline-success">+</button>
+        </div>
+      `;
+
+      li.querySelector('.btn-outline-danger').onclick = () => cambiarCantidad(index, -1);
+      li.querySelector('.btn-outline-success').onclick = () => cambiarCantidad(index, 1);
+
+      lista.appendChild(li);
+    });
+  }
+
+  function enviarWhatsApp() {
+    const carrito = cargarCarrito();
+    if (carrito.length === 0) return;
+
+    const numero = '5491160248194'; 
+    const mensaje = encodeURIComponent(
+      "Hola, quiero consultar por los siguientes productos:\n\n" +
+        carrito.map(item => `• ${item.nombre} (x${item.cantidad})`).join('\n')
+    );
+    const url = `https://wa.me/${numero}?text=${mensaje}`;
+    window.open(url, '_blank');
+  }
+
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      agregarProducto(btn.dataset.product);
+    });
+  });
+
+  document.getElementById('btn-enviar-whatsapp').addEventListener('click', enviarWhatsApp);
+  document.getElementById('modalCarrito').addEventListener('show.bs.modal', renderizarCarrito);
+  actualizarBotonCarrito();
+</script>

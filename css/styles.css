@@ -1,17 +1,16 @@
-/* Asegura que las imágenes de las cards sean responsivas */
 .card-img-top {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Cambiar el contenedor principal para que sea fluido y con padding */
+
 main.container-fluid {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* Paginación: que se ajuste y no se desborde en pantallas pequeñas */
+
 .pagination {
   flex-wrap: wrap;
   justify-content: center;
@@ -23,7 +22,7 @@ main.container-fluid {
   margin: 0 0.2rem;
 }
 
-/* Botón flotante carrito */
+
 #btn-carrito {
   position: fixed;
   bottom: 70px;
@@ -40,7 +39,7 @@ main.container-fluid {
   background-color: #28a745cc;
 }
 
-/* Ajustes para móviles */
+
 @media (max-width: 576px) {
   main.container-fluid {
     padding-left: 0.5rem;
@@ -54,7 +53,7 @@ main.container-fluid {
     padding: 8px 12px;
   }
 
-  /* Cards: que no tengan márgenes muy grandes */
+
   .col-12.col-sm-6.col-md-4.mb-4 {
     padding-left: 0.3rem;
     padding-right: 0.3rem;

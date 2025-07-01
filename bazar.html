@@ -17,8 +17,13 @@
     </nav>
   </header>
   <main class="container-fluid my-5 px-3">
+
+    <nav aria-label="Paginación superior" class="text-center">
+        <ul class="pagination justify-content-center mt-4" id="paginacion-superior"></ul>
+    </nav>
+
     <h3>Bazar</h3>
-    <div class="row">
+    <div class="row" id="lista-productos">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 mb-4">
         <div class="card">
@@ -106,10 +111,146 @@
           </div>
         </div>
       </div>
+
+       <!-- Producto 8 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/botella.jpeg" class="card-img-top" alt="botella" />
+          <div class="card-body">
+            <h5 class="card-title">Botella</h5>
+            <p class="card-text">Precio $1.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Botella">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      
+             <!-- Producto 9 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/broches.jpeg" class="card-img-top" alt="broches" />
+          <div class="card-body">
+            <h5 class="card-title">Broches</h5>
+            <p class="card-text">Precio $1.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Broches">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                <!-- Producto 10 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/broches (2).jpeg" class="card-img-top" alt="broches" />
+          <div class="card-body">
+            <h5 class="card-title">Broches</h5>
+            <p class="card-text">Precio $1.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Broches">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+              <!-- Producto 11 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/canastoovaladocontapa.jpeg" class="card-img-top" alt="canastoovaladocontapa" />
+          <div class="card-body">
+            <h5 class="card-title">Canasto con tapa</h5>
+            <p class="card-text">Precio $3.200</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Canasto ovalado con tapa">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                    <!-- Producto 12 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/cepillo.jpeg" class="card-img-top" alt="cepillo" />
+          <div class="card-body">
+            <h5 class="card-title">Cepillo</h5>
+            <p class="card-text">Precio $1.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Cepillo">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+        <!-- Producto 13 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/cestodebasura.jpeg" class="card-img-top" alt="cestodebasura" />
+          <div class="card-body">
+            <h5 class="card-title">Cesto de basura</h5>
+            <p class="card-text">Precio $6.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Cesto de basura">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+              <!-- Producto 14 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/Cestos.jpeg" class="card-img-top" alt="Cestos" />
+          <div class="card-body">
+            <h5 class="card-title">Cesto</h5>
+            <p class="card-text">Precio $6.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Cesto de basura">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                    <!-- Producto 15 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/colador.jpeg" class="card-img-top" alt="colador" />
+          <div class="card-body">
+            <h5 class="card-title">Colador</h5>
+            <p class="card-text">Precio $2.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Colador">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                          <!-- Producto 16 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/jabonera.jpeg" class="card-img-top" alt="jabonera" />
+          <div class="card-body">
+            <h5 class="card-title">Jabonera</h5>
+            <p class="card-text">Precio $1.000</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Jabonera">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                                <!-- Producto 17 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/organizadorconesponja.jpeg" class="card-img-top" alt="organizadorconesponja" />
+          <div class="card-body">
+            <h5 class="card-title">Organizador con esponja</h5>
+            <p class="card-text">Precio $1.100</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="organizador con esponja">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+                <!-- Producto 18 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <img src="images/Bazar/palangana1.jpeg" class="card-img-top" alt="palangana1" />
+          <div class="card-body">
+            <h5 class="card-title">Palangana</h5>
+            <p class="card-text">Precio $4.500</p>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Palangana">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Paginación" class="text-center">
+          <ul class="pagination justify-content-center mt-4" id="paginacion"></ul>
+      </nav>
   </main>
 
 
-  <!-- Botón flotante para abrir carrito -->
+    <!-- Botón flotante para abrir carrito -->
   <button id="btn-carrito" class="btn btn-success btn-lg btn-whatsapp d-none" data-bs-toggle="modal" data-bs-target="#modalCarrito">
     Ver carrito (<span id="contador-carrito">0</span>)
   </button>
@@ -251,14 +392,98 @@
     const url = `https://wa.me/${numero}?text=${mensaje}`;
     window.open(url, '_blank');
   }
+    
+  
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+        const card = btn.closest('.card-body');
+        const selects = card.querySelectorAll('.variante-select');
+        let variantes = '';
 
-  document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-      agregarProducto(btn.dataset.product);
+        selects.forEach(select => {
+        const selectedText = select.options[select.selectedIndex].textContent.trim();
+        variantes += ` - ${selectedText}`;
     });
-  });
+
+    const productoFinal = btn.dataset.product + variantes;
+        agregarProducto(productoFinal);
+        });
+    });
+
+
 
   document.getElementById('btn-enviar-whatsapp').addEventListener('click', enviarWhatsApp);
   document.getElementById('modalCarrito').addEventListener('show.bs.modal', renderizarCarrito);
   actualizarBotonCarrito();
+
+  const productosPorPagina = 9;
+  const listaProductos = document.getElementById("lista-productos");
+  const paginacionSuperior = document.getElementById("paginacion-superior");
+  const paginacionInferior = document.getElementById("paginacion");
+  const tarjetas = Array.from(listaProductos.querySelectorAll('.col-12'));
+  let paginaActual = 1;
+
+function mostrarPagina(pagina) {
+  paginaActual = pagina;
+  const inicio = (pagina - 1) * productosPorPagina;
+  const fin = inicio + productosPorPagina;
+
+  tarjetas.forEach((card, index) => {
+    card.style.display = index >= inicio && index < fin ? "block" : "none";
+  });
+
+  renderizarBotonesPaginacion();
+
+ 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+
+function renderizarBotonesPaginacion() {
+  const totalPaginas = Math.ceil(tarjetas.length / productosPorPagina);
+
+  [paginacionSuperior, paginacionInferior].forEach(paginacion => {
+    paginacion.innerHTML = "";
+
+    // Botón "Anterior"
+    const liAnterior = document.createElement("li");
+    liAnterior.className = `page-item ${paginaActual === 1 ? "disabled" : ""}`;
+    liAnterior.innerHTML = `<a class="page-link" href="#">« Anterior</a>`;
+    liAnterior.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (paginaActual > 1) mostrarPagina(paginaActual - 1);
+    });
+    paginacion.appendChild(liAnterior);
+
+    // Botones de páginas
+    for (let i = 1; i <= totalPaginas; i++) {
+      const li = document.createElement("li");
+      li.className = `page-item ${i === paginaActual ? "active" : ""}`;
+      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      li.addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarPagina(i);
+      });
+      paginacion.appendChild(li);
+    }
+
+    // Botón "Siguiente"
+    const liSiguiente = document.createElement("li");
+    liSiguiente.className = `page-item ${paginaActual === totalPaginas ? "disabled" : ""}`;
+    liSiguiente.innerHTML = `<a class="page-link" href="#">Siguiente »</a>`;
+    liSiguiente.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (paginaActual < totalPaginas) mostrarPagina(paginaActual + 1);
+    });
+    paginacion.appendChild(liSiguiente);
+  });
+}
+
+
+
+  // Inicializar
+  mostrarPagina(1);
 </script>
+
+

@@ -31,7 +31,7 @@
               <option value="L">Talle: L</option>
               <option value="XL">Talle: XL</option>
             </select>
-            <button class="btn btn-primary w-100 add-to-cart" data-product="Boxer Lody">Agregar al carrito</button>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Boxer Lody" data-precio="6000">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
           <div class="card-body">
             <h5 class="card-title">Conjunto Tres Piezas</h5>
             <p class="card-text">Precio: $15.000</p>
-            <button class="btn btn-primary w-100 add-to-cart" data-product="Conjunto Tres Piezas">Agregar al carrito</button>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Conjunto Tres Piezas" data-precio="15000">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
               <option value="Blanca PsP">Blanca PsP</option>
               <option value="Negra PsP">Negra PsP</option>
             </select>
-            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias">Agregar al carrito</button>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias" data-precio="3000">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
           <div class="card-body">
             <h5 class="card-title">Medias de niños</h5>
             <p class="card-text">Precio: $1.500</p>
-            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias de niños">Agregar al carrito</button>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias de niños" data-precio="1500">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
               <option value="Rosa">Rosa</option>
               <option value="Marron">Marron</option>
             </select>
-            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias de Mujer">Agregar al carrito</button>
+            <button class="btn btn-primary w-100 add-to-cart" data-product="Medias de Mujer" data-precio="2000">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -115,6 +115,7 @@
             El carrito está vacío.
           </div>
         </div>
+        <div id="carrito-total" class="text-end fw-bold mt-3"></div>
         <div class="modal-footer">
           <button id="btn-enviar-whatsapp" type="button" class="btn btn-success" disabled>
             Enviar pedido por WhatsApp
@@ -134,7 +135,7 @@
   <script>
   const carritoKey = 'carritoProductos';
 
-  function cargarCarrito() {
+ function cargarCarrito() {
     const data = localStorage.getItem(carritoKey);
     return data ? JSON.parse(data) : [];
   }
@@ -158,20 +159,21 @@
     }
   }
 
-  function agregarProducto(nombre) {
-    const carrito = cargarCarrito();
-    const index = carrito.findIndex(p => p.nombre === nombre);
+ function agregarProducto(nombre, precio) {
+  const carrito = cargarCarrito();
+  const index = carrito.findIndex(p => p.nombre === nombre);
 
-    if (index > -1) {
-      carrito[index].cantidad++;
-    } else {
-      carrito.push({ nombre, cantidad: 1 });
-    }
-
-    guardarCarrito(carrito);
-    actualizarBotonCarrito();
-    alert(`"${nombre}" agregado al carrito.`);
+  if (index > -1) {
+    carrito[index].cantidad++;
+  } else {
+    carrito.push({ nombre, precio, cantidad: 1 });
   }
+
+  guardarCarrito(carrito);
+  actualizarBotonCarrito();
+  alert(`"${nombre}" agregado al carrito. Precio: $${precio}`);
+}
+
 
   function cambiarCantidad(index, delta) {
     const carrito = cargarCarrito();
@@ -193,6 +195,8 @@
     const lista = document.getElementById('lista-carrito');
     const vacioMsg = document.getElementById('carrito-vacio');
     const btnEnviar = document.getElementById('btn-enviar-whatsapp');
+    const totalDiv = document.getElementById('carrito-total');
+      let total = 0;
 
     lista.innerHTML = '';
 
@@ -211,7 +215,8 @@
 
       li.innerHTML = `
         <div>
-          ${item.nombre} <strong>(x${item.cantidad})</strong>
+          ${item.nombre} <strong>(x${item.cantidad})</strong> - $${item.precio * item.cantidad}
+
         </div>
         <div>
           <button class="btn btn-sm btn-outline-danger me-1">−</button>
@@ -223,23 +228,38 @@
       li.querySelector('.btn-outline-success').onclick = () => cambiarCantidad(index, 1);
 
       lista.appendChild(li);
+
+      total += item.precio * item.cantidad;
+
     });
+    totalDiv.textContent = `Total: $${total}`;
   }
+    
 
-  function enviarWhatsApp() {
-    const carrito = cargarCarrito();
-    if (carrito.length === 0) return;
 
-    const numero = '5491160248194'; 
-    const mensaje = encodeURIComponent(
-      "Hola, quiero consultar por los siguientes productos:\n\n" +
-        carrito.map(item => `• ${item.nombre} (x${item.cantidad})`).join('\n')
-    );
-    const url = `https://wa.me/${numero}?text=${mensaje}`;
-    window.open(url, '_blank');
-  }
+ function enviarWhatsApp() {
+  const carrito = cargarCarrito();
+  if (carrito.length === 0) return;
 
-  document.querySelectorAll('.add-to-cart').forEach(btn => {
+  const numero = '5491160248194'; 
+  let total = 0;
+  const mensaje = encodeURIComponent(
+    "Hola, quiero consultar por los siguientes productos:\n\n" +
+      carrito.map(item => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        return `• ${item.nombre} (x${item.cantidad}) - $${subtotal}`;
+      }).join('\n') +
+      `\n\nTotal: $${total}`
+  );
+
+  const url = `https://wa.me/${numero}?text=${mensaje}`;
+  window.open(url, '_blank');
+}
+
+    
+  
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', () => {
         const card = btn.closest('.card-body');
         const selects = card.querySelectorAll('.variante-select');
@@ -251,12 +271,84 @@
     });
 
     const productoFinal = btn.dataset.product + variantes;
-        agregarProducto(productoFinal);
+      const precio = btn.dataset.precio || '0';
+          agregarProducto(productoFinal, parseInt(precio));
+
         });
- });
+    });
+
+
 
   document.getElementById('btn-enviar-whatsapp').addEventListener('click', enviarWhatsApp);
   document.getElementById('modalCarrito').addEventListener('show.bs.modal', renderizarCarrito);
   actualizarBotonCarrito();
-</script>
 
+  const productosPorPagina = 9;
+  const listaProductos = document.getElementById("lista-productos");
+  const paginacionSuperior = document.getElementById("paginacion-superior");
+  const paginacionInferior = document.getElementById("paginacion");
+  const tarjetas = Array.from(listaProductos.querySelectorAll('.col-12'));
+  let paginaActual = 1;
+
+function mostrarPagina(pagina) {
+  paginaActual = pagina;
+  const inicio = (pagina - 1) * productosPorPagina;
+  const fin = inicio + productosPorPagina;
+
+  tarjetas.forEach((card, index) => {
+    card.style.display = index >= inicio && index < fin ? "block" : "none";
+  });
+
+  renderizarBotonesPaginacion();
+
+ 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+
+function renderizarBotonesPaginacion() {
+  const totalPaginas = Math.ceil(tarjetas.length / productosPorPagina);
+
+  [paginacionSuperior, paginacionInferior].forEach(paginacion => {
+    paginacion.innerHTML = "";
+
+    // Botón "Anterior"
+    const liAnterior = document.createElement("li");
+    liAnterior.className = `page-item ${paginaActual === 1 ? "disabled" : ""}`;
+    liAnterior.innerHTML = `<a class="page-link" href="#">« Anterior</a>`;
+    liAnterior.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (paginaActual > 1) mostrarPagina(paginaActual - 1);
+    });
+    paginacion.appendChild(liAnterior);
+
+    // Botones de páginas
+    for (let i = 1; i <= totalPaginas; i++) {
+      const li = document.createElement("li");
+      li.className = `page-item ${i === paginaActual ? "active" : ""}`;
+      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      li.addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarPagina(i);
+      });
+      paginacion.appendChild(li);
+    }
+
+    // Botón "Siguiente"
+    const liSiguiente = document.createElement("li");
+    liSiguiente.className = `page-item ${paginaActual === totalPaginas ? "disabled" : ""}`;
+    liSiguiente.innerHTML = `<a class="page-link" href="#">Siguiente »</a>`;
+    liSiguiente.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (paginaActual < totalPaginas) mostrarPagina(paginaActual + 1);
+    });
+    paginacion.appendChild(liSiguiente);
+  });
+}
+
+
+
+  // Inicializar
+  mostrarPagina(1);
+</script>
